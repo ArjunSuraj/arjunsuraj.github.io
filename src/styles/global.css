@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-bg: #fafafa;
   --color-bg-alt: #ffffff;
   --color-text: #1a1a1a;
