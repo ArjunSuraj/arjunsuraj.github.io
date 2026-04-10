@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #fafafa;
+  --color-bg-alt: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b7280;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-border: #e5e7eb;
+  --color-tag-bg: #f3f4f6;
+  --color-tag-text: #374151;
+  --color-code-bg: #f3f4f6;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.dark {
+  --color-bg: #0a0a0a;
+  --color-bg-alt: #141414;
+  --color-text: #e5e5e5;
+  --color-text-muted: #9ca3af;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93bbfc;
+  --color-border: #262626;
+  --color-tag-bg: #1e1e1e;
+  --color-tag-text: #d1d5db;
+  --color-code-bg: #1e1e1e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.prose {
+  max-width: 65ch;
+  line-height: 1.75;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.prose h1 { font-size: 2rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+
+.prose p {
+  margin-bottom: 1.25em;
+  color: var(--color-text-muted);
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+  color: var(--color-text-muted);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--color-code-bg);
+  padding: 0.125em 0.375em;
+  border-radius: 0.25rem;
+}
+
+.prose pre {
+  background-color: var(--color-code-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5em;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--color-accent-hover);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.prose strong {
+  color: var(--color-text);
+  font-weight: 600;
+}

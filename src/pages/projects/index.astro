@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+
+const allTags = [...new Set(projects.flatMap(p => p.data.tags))].sort();
+---
+
+<BaseLayout title="Projects — Arjun Suraj L R" description="AI and full-stack projects I've built.">
+  <section class="mx-auto max-w-5xl px-6 pt-24 pb-16">
+    <p class="font-mono text-sm text-[var(--color-accent)] mb-4">Projects</p>
+    <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Things I've built</h1>
+    <p class="text-[var(--color-text-muted)] mb-8 max-w-2xl">
+      A mix of production systems, side projects, and open-source contributions.
+      Click any project for details.
+    </p>
+
+    <!-- Filter tags -->
+    <div class="flex flex-wrap gap-2 mb-10" id="tag-filters">
+      <button data-tag="all" class="tag-btn active text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] font-medium transition-colors">
+        All
+      </button>
+      {allTags.map(tag => (
+        <button data-tag={tag} class="tag-btn text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] font-medium transition-colors text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+          {tag}
+        </button>
+      ))}
+    </div>
+
+    <!-- Project grid -->
+    <div class="grid md:grid-cols-2 gap-6" id="project-grid">
+      {projects.map(project => (
+        <a
+          href={`/projects/${project.id}`}
+          class="project-card group block p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)] hover:border-[var(--color-accent)]/40 transition-colors"
+          data-tags={JSON.stringify(project.data.tags)}
+        >
+          {project.data.featured && (
+            <span class="inline-block text-[10px] font-mono font-semibold text-[var(--color-accent)] mb-2 uppercase tracking-wider">Featured</span>
+          )}
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-[var(--color-accent)] transition-colors">{project.data.title}</h3>
+          <p class="text-sm text-[var(--color-text-muted)] mb-4 line-clamp-3">{project.data.description}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            {project.data.tags.map(tag => (
+              <span class="text-xs px-2 py-1 rounded-md bg-[var(--color-tag-bg)] text-[var(--color-tag-text)] font-mono">{tag}</span>
+            ))}
+          </div>
+          <div class="flex gap-3">
+            {project.data.github && (
+              <span class="text-xs text-[var(--color-text-muted)]">GitHub</span>
+            )}
+            {project.data.demo && (
+              <span class="text-xs text-[var(--color-text-muted)]">Live Demo</span>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function setupFilters() {
+    const buttons = document.querySelectorAll('.tag-btn');
+    const cards = document.querySelectorAll('.project-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tag = (btn as HTMLElement).dataset.tag;
+
+        buttons.forEach(b => {
+          b.classList.remove('active', 'bg-[var(--color-accent)]', 'text-white', 'border-[var(--color-accent)]');
+          b.classList.add('text-[var(--color-text-muted)]');
+        });
+        btn.classList.add('active', 'bg-[var(--color-accent)]', 'text-white', 'border-[var(--color-accent)]');
+        btn.classList.remove('text-[var(--color-text-muted)]');
+
+        cards.forEach(card => {
+          const cardEl = card as HTMLElement;
+          if (tag === 'all') {
+            cardEl.style.display = 'block';
+            return;
+          }
+          const tags = JSON.parse(cardEl.dataset.tags || '[]');
+          cardEl.style.display = tags.includes(tag) ? 'block' : 'none';
+        });
+      });
+    });
+
+    const activeBtn = document.querySelector('.tag-btn.active');
+    if (activeBtn) {
+      activeBtn.classList.add('bg-[var(--color-accent)]', 'text-white', 'border-[var(--color-accent)]');
+    }
+  }
+
+  setupFilters();
+  document.addEventListener('astro:after-swap', setupFilters);
+</script>

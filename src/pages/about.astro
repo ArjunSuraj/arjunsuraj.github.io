@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skills = {
+  'AI / ML': ['LLMs', 'RAG', 'LangChain', 'LangGraph', 'Prompt Engineering', 'Code Generation', 'Azure OpenAI'],
+  'Backend': ['Java', 'Spring Boot', 'Python', 'FastAPI', 'Microservices', 'REST APIs', 'Kafka'],
+  'Frontend': ['Angular', 'React', 'TypeScript'],
+  'Data': ['MongoDB', 'MySQL', 'Qdrant', 'Elastic Search', 'Cassandra'],
+  'Cloud & DevOps': ['AWS', 'Azure', 'GCP', 'Docker', 'CI/CD Pipelines'],
+};
+
+const timeline = [
+  { year: '2024 — Present', title: 'AI Engineer', company: 'Trimble', description: 'Leading Code Generation project. Building AI-powered tools to automate developer workflows using LLMs.' },
+  { year: '2022 — 2024', title: 'Full Stack Software Engineer', company: 'Trimble', description: 'Built RAG chatbot adopted company-wide. Shipped NL-to-SQL API. Managed 5 supply chain applications.' },
+  { year: '2022', title: 'Software Developer', company: 'GFT Technologies, UK', description: 'P&L web applications for Deutsche Bank. Spring Boot + Angular on GCP.' },
+  { year: '2017 — 2020', title: 'Full Stack Software Developer', company: 'Accenture', description: 'Claim processing for StateFarm Insurance. Angular + Spring MVC.' },
+];
+
+const education = [
+  { year: '2020 — 2021', degree: 'MSc Advanced Computer Science', school: 'University of Sheffield, UK' },
+  { year: '2013 — 2017', degree: 'BE Computer Science', school: 'Government College of Engineering, Anna University' },
+];
+---
+
+<BaseLayout title="About — Arjun Suraj L R" description="AI Engineer with 7+ years building enterprise software. Specializing in RAG, code generation, and production AI systems.">
+  <section class="mx-auto max-w-5xl px-6 pt-24 pb-16">
+    <p class="font-mono text-sm text-[var(--color-accent)] mb-4">About</p>
+    <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+      Building AI that ships.
+    </h1>
+    <div class="prose mb-16">
+      <p>
+        I'm an AI Engineer with 7+ years of experience delivering enterprise solutions across
+        finance, insurance, and supply chain. My career arc goes from full-stack Java/Angular
+        development at Accenture and Deutsche Bank, through a Master's in Computer Science at
+        Sheffield, to leading AI initiatives at Trimble.
+      </p>
+      <p>
+        Today I build tools that make developers more productive — RAG chatbots that answer questions
+        from internal documentation, natural language interfaces to SQL databases, and AI-powered
+        code generation systems. I care about shipping AI that works reliably at scale, not just
+        impressive demos.
+      </p>
+      <p>
+        When I'm not writing code, I'm usually reading about new developments in AI/ML, experimenting
+        with the latest LLM architectures, or exploring how to bridge the gap between research and
+        production systems.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold mb-8">Skills</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Object.entries(skills).map(([category, items]) => (
+          <div class="p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-alt)]">
+            <h3 class="text-sm font-mono font-semibold text-[var(--color-accent)] mb-3">{category}</h3>
+            <div class="flex flex-wrap gap-2">
+              {items.map(skill => (
+                <span class="text-xs px-2 py-1 rounded-md bg-[var(--color-tag-bg)] text-[var(--color-tag-text)]">{skill}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold mb-8">Experience</h2>
+      <div class="space-y-8">
+        {timeline.map(item => (
+          <div class="flex gap-6">
+            <div class="w-32 shrink-0">
+              <span class="text-sm font-mono text-[var(--color-text-muted)]">{item.year}</span>
+            </div>
+            <div class="border-l-2 border-[var(--color-border)] pl-6 pb-2">
+              <h3 class="font-semibold">{item.title}</h3>
+              <p class="text-sm text-[var(--color-accent)] mb-2">{item.company}</p>
+              <p class="text-sm text-[var(--color-text-muted)]">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div>
+      <h2 class="text-2xl font-bold mb-8">Education</h2>
+      <div class="space-y-6">
+        {education.map(item => (
+          <div class="flex gap-6">
+            <div class="w-32 shrink-0">
+              <span class="text-sm font-mono text-[var(--color-text-muted)]">{item.year}</span>
+            </div>
+            <div class="border-l-2 border-[var(--color-border)] pl-6">
+              <h3 class="font-semibold">{item.degree}</h3>
+              <p class="text-sm text-[var(--color-text-muted)]">{item.school}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
