@@ -2,7 +2,7 @@
 title: "Deutsche Bank P&L System"
 description: "Profit and Loss web applications for Deutsche Bank — real-time financial data processing with robust API integration."
 tags: ["Spring Boot", "Angular", "GCP", "SOAP", "REST", "Java"]
-order: 4
+order: 8
 ---
 
 ## Overview

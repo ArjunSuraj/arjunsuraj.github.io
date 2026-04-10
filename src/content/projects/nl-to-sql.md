@@ -3,7 +3,7 @@ title: "Natural Language to SQL"
 description: "A production API that translates natural language questions into SQL queries, empowering non-technical users to query databases directly."
 tags: ["Python", "FastAPI", "LLMs", "Azure OpenAI", "SQL", "Prompt Engineering"]
 featured: true
-order: 2
+order: 4
 ---
 
 ## Overview

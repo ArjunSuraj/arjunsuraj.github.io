@@ -3,7 +3,7 @@ title: "Trimble AI Assistant"
 description: "A RAG-powered chatbot trained on internal documentation, adopted company-wide across Trimble for instant knowledge retrieval."
 tags: ["RAG", "LangChain", "Python", "FastAPI", "Qdrant", "Azure OpenAI"]
 featured: true
-order: 1
+order: 3
 ---
 
 ## Overview

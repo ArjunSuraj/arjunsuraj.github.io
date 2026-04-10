@@ -2,7 +2,7 @@
 title: "Supply Chain Management Platform"
 description: "End-to-end supply chain applications for Trimble's forestry sector — five distinct applications managing the full supply chain lifecycle."
 tags: ["Angular", "Spring Boot", "GCP", "Microservices", "Java"]
-order: 3
+order: 7
 ---
 
 ## Overview
