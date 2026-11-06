@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const skills = {
-  'AI / ML': ['LLMs', 'RAG', 'LangChain', 'LangGraph', 'Prompt Engineering', 'Code Generation', 'Azure OpenAI', 'HMM'],
+  'AI / ML': ['LLMs', 'Agent Harnesses', 'RAG', 'LangChain', 'LangGraph', 'LangSmith', 'Prompt Engineering', 'Code Generation', 'Azure OpenAI'],
   'Backend': ['Java', 'Spring Boot', 'Python', 'FastAPI', 'Microservices', 'REST APIs', 'Kafka', 'C++'],
   'Frontend': ['Angular', 'React', 'TypeScript', 'Vue'],
   'Data': ['MongoDB', 'MySQL', 'Qdrant', 'Elastic Search', 'Cassandra', 'Jupyter'],
@@ -11,7 +11,7 @@ const skills = {
 };
 
 const timeline = [
-  { year: '2024 — Present', title: 'AI Engineer', company: 'Trimble', description: 'Leading Code Generation project. Building AI-powered tools to automate developer workflows using LLMs.' },
+  { year: '2024 — Present', title: 'AI Engineer', company: 'Trimble', description: 'Building Trimble Arc agent-harness capabilities and leading LLM-based code generation and developer automation.' },
   { year: '2022 — 2024', title: 'Full Stack Software Engineer', company: 'Trimble', description: 'Built RAG chatbot adopted company-wide. Shipped NL-to-SQL API. Managed 5 supply chain applications.' },
   { year: '2022', title: 'Software Developer', company: 'GFT Technologies, UK', description: 'P&L web applications for Deutsche Bank. Spring Boot + Angular on GCP.' },
   { year: '2017 — 2020', title: 'Full Stack Software Developer', company: 'Accenture', description: 'Claim processing for StateFarm Insurance. Angular + Spring MVC.' },
@@ -23,7 +23,7 @@ const education = [
 ];
 ---
 
-<BaseLayout title="About — Arjun Suraj L R" description="AI Engineer with 7+ years building enterprise software. Specializing in RAG, code generation, and production AI systems.">
+<BaseLayout title="About — Arjun Suraj L R" description="AI Engineer with 8+ years building enterprise software, agent platforms, RAG, and developer automation.">
   <section class="mx-auto max-w-5xl px-6 pt-24 pb-16">
     <p class="font-mono text-sm text-[var(--color-accent)] mb-4">About</p>
     <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
@@ -31,16 +31,16 @@ const education = [
     </h1>
     <div class="prose mb-16">
       <p>
-        I'm an AI Engineer with 7+ years of experience delivering enterprise solutions across
+        I'm an AI Engineer with 8+ years of experience delivering enterprise solutions across
         finance, insurance, and supply chain. My career arc goes from full-stack Java/Angular
         development at Accenture and Deutsche Bank, through a Master's in Computer Science at
         Sheffield, to leading AI initiatives at Trimble.
       </p>
       <p>
-        Today I build tools that make developers more productive — RAG chatbots that answer questions
-        from internal documentation, natural language interfaces to SQL databases, and AI-powered
-        code generation systems. I care about shipping AI that works reliably at scale, not just
-        impressive demos.
+        Today I work on Trimble Arc, an agent-harness platform that runs skills and integrates
+        multiple products. My work includes context management, sandboxed execution, authentication,
+        and authorization, alongside LLM-based code generation and developer automation. Earlier,
+        I helped deliver a company-wide RAG assistant and a natural-language-to-SQL API.
       </p>
       <p>
         When I'm not writing code, I'm usually reading about new developments in AI/ML, experimenting
